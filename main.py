@@ -3,10 +3,11 @@ import time
 from datetime import datetime
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, CallbackQueryHandler
-
-# ADMIN ID
-ADMIN_ID = 5621544162 # <-- BU YERGA O'Z TELEGRAM ID'INGIZNI YOZING
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
+TOKEN = os.getenv("BOT_TOKEN")
+ADMIN_ID = int(os.getenv("ADMIN_ID"))
 # Anti-spam uchun vaqtlar
 last_used = {}
 
@@ -96,7 +97,6 @@ async def stats_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # Botni ishga tushirish
 if __name__ == "__main__":
-    TOKEN = "7562211031:AAHW7dsqQFoCg9U9LxMdU_i8lAg9DZuGbRo"  # <-- Tokenni yozing
     app = ApplicationBuilder().token(TOKEN).build()
 
     # Komandalar
