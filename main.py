@@ -3,11 +3,15 @@ import time
 from datetime import datetime
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, CallbackQueryHandler
+# BUNDA load_dotenv() NI O‘CHIRAMIZ!
 import os
-from dotenv import load_dotenv
-load_dotenv()
-TOKEN = os.getenv("BOT_TOKEN")
-ADMIN_ID = int(os.getenv("ADMIN_ID"))
+from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler, ContextTypes
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+import csv, time
+from datetime import datetime
+
+TOKEN = os.environ["BOT_TOKEN"]
+ADMIN_ID = int(os.environ["ADMIN_ID"])
 # Anti-spam uchun vaqtlar
 last_used = {}
 
