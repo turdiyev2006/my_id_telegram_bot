@@ -10,6 +10,22 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 import csv, time
 from datetime import datetime
 
+
+import pytz
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+
+scheduler = AsyncIOScheduler(timezone=pytz.utc)  # yoki pytz.timezone('Asia/Tashkent')
+
+import pytz
+from telegram.ext import ApplicationBuilder, Defaults
+
+app = ApplicationBuilder()\
+    .token(BOT_TOKEN)\
+    .defaults(Defaults(tzinfo=pytz.timezone("Asia/Tashkent")))\
+    .build()
+
+
+
 TOKEN = os.environ["BOT_TOKEN"]
 ADMIN_ID = int(os.environ["ADMIN_ID"])
 # Anti-spam uchun vaqtlar
